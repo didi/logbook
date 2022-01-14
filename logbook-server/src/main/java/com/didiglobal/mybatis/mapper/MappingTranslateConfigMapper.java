@@ -1,0 +1,18 @@
+package com.didiglobal.mybatis.mapper;
+
+import com.didiglobal.mybatis.entity.TranslateRuleConfig;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
+
+/**
+ * @author mayingdong
+ * @date 2021/11/3
+ */
+@Mapper
+public interface MappingTranslateConfigMapper {
+
+    @Select("SELECT * FROM mapping_translate_config WHERE status = 1")
+    List<TranslateRuleConfig> queryAllValidTranslateConfig();
+}

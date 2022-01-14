@@ -1,0 +1,40 @@
+server:
+  port: 8102
+  servlet:
+    context-path: /logbook
+  tomcat:
+    connection-timeout: 30000   # ms, 30 s
+    max-threads: 200
+    uri-encoding: UTF-8
+    min-spare-threads: 10
+    max-connections: 3000
+    accept-count: 100
+    max-http-form-post-size: 5MB
+
+# DataSource Config
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: "jdbc:mysql://localhost:3306/logbook?useSSL=false&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true"
+    username: root
+    password: root
+
+
+# 定时配置
+# 5分钟："0 */5 * * * ?"
+# 5秒钟："0/5 * *  * * ? "
+meta_caller_load_cron: "0 */5 * * * ?"
+
+mapping_permit_load_cron: "0 */5 * * * ?"
+mapping_translate_load_cron: "0 */5 * * * ?"
+
+meta_producer_load_cron: "0 */5 * * * ?"
+meta_consumer_load_cron: "0 */5 * * * ?"
+
+meta_entity_type_load_cron: "0 */5 * * * ?"
+meta_entity_event_type_load_cron: "0 */5 * * * ?"
+
+mapping_entity_producer_load_cron: "0 */5 * * * ?"
+mapping_consume_rule_load_cron: "0 */5 * * * ?"
+
+
